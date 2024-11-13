@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
 from django.shortcuts import redirect,render
 from django.contrib.auth.models import User
@@ -48,6 +49,20 @@ def register(request):
 
     return render(request, 'components/register.html')
 
+def LOGIN(request):
+    if request.method == "POST":
+        uname = request.POST.get("username")
+        passw = request.POST.get("password")
+        user = authenticate(request, username=uname, password=passw)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return HttpResponse("Username or password is incorrect!")
 
-def login(request):
     return render(request, 'components/login.html')
+
+
+def LOGOUT(request):
+    logout(request)
+    return redirect("home")
