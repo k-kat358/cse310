@@ -10,6 +10,9 @@ def base(request):
 def home(request):
     return render(request, 'components/home.html')
 
+def builder(request):
+    return render(request, 'components/builder.html')
+
 
 def register(request):
     if request.method == 'POST':
