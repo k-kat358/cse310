@@ -34,7 +34,7 @@
           <tr>
             <td>CPU</td>
             <td>
-              <button class="btn btn-primary btn-sm">+ Choose A CPU</button>
+             <a href="{% url 'parts' %}?type=cpu" class="btn btn-primary m-2">View CPUs</a>
             </td>
             <td></td>
             <td></td>
@@ -45,7 +45,7 @@
           <tr>
             <td>CPU Cooler</td>
             <td>
-              <button class="btn btn-primary btn-sm">+ Choose A CPU Cooler</button>
+              <a href="{% url 'parts' %}?type=cooler" class="btn btn-primary m-2">View Coolers</a>
             </td>
             <td></td>
             <td></td>
@@ -56,7 +56,7 @@
           <tr>
             <td>Motherboard</td>
             <td>
-              <button class="btn btn-primary btn-sm">+ Choose A Motherboard</button>
+              <a href="{% url 'parts' %}?type=mobo" class="btn btn-primary m-2">View Motherboards</a>
             </td>
             <td></td>
             <td></td>
@@ -67,7 +67,7 @@
           <tr>
             <td>Memory</td>
             <td>
-              <button class="btn btn-primary btn-sm">+ Choose Memory</button>
+              <a href="{% url 'parts' %}?type=ram" class="btn btn-primary m-2">View Rams</a>
             </td>
             <td></td>
             <td></td>
@@ -78,7 +78,51 @@
           <tr>
             <td>Storage</td>
             <td>
-              <button class="btn btn-primary btn-sm">+ Choose Storage</button>
+              <a href="{% url 'parts' %}?type=storage" class="btn btn-primary m-2">View Storage Units</a>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>GPU</td>
+            <td>
+              <a href="{% url 'parts' %}?type=gpu" class="btn btn-primary m-2">View GPUs</a>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>PSU</td>
+            <td>
+              <a href="{% url 'parts' %}?type=psu" class="btn btn-primary m-2">View PSUs</a>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Case</td>
+            <td>
+              <a href="{% url 'parts' %}?type=case" class="btn btn-primary m-2">View Cases</a>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Meow</td>
+            <td>
+              <a href="{% url 'parts' %}" class="btn btn-primary m-2">View All Parts</a> <!-- prototype, time paile korbo, naile baad-->
             </td>
             <td></td>
             <td></td>
