@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
 from django.shortcuts import redirect,render
 from django.contrib.auth.models import User
+from products.models import CPU, MOBO, CPUCooler, RAM, Storage, GPU, PSU, CASE
 
 
 def base(request):

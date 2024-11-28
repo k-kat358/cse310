@@ -4,7 +4,7 @@ from django.db import models
 #cpu,cpu cooler, motherboard, memory, storage, gpu,psu, case
 
 class CPU(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='CPU/',null=True, blank=True)
     name = models.CharField(max_length=100)
     platform = models.CharField(max_length=100) #e.g. am5, lga1156
     generation = models.CharField(max_length=100)
@@ -15,13 +15,13 @@ class CPU(models.Model):
     cache = models.IntegerField()
     power= models.FloatField()
     warranty = models.IntegerField()
-    #price =models.FloatField()
+    price = models.FloatField(default=0)
 
     def __str__(self) -> str:
         return self.name
 
 class MOBO(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='MOBO/',null=True, blank=True)
     name = models.CharField(max_length=100)
     platform = models.CharField(max_length=100) #e.g. am5, lga1156
     chipset = models.CharField(max_length=100)
@@ -33,13 +33,13 @@ class MOBO(models.Model):
     connector_and_ports = models.TextField()
     warranty = models.IntegerField() #in years
     power= models.FloatField() #scarping a pawa difficult
-    #price = models.FloatField()
+    price = models.FloatField(default=0)
 
     def __str__(self) -> str:
         return self.name
 
 class CPUCooler(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='CPUCOOLER/',null=True, blank=True)
     name = models.CharField(max_length=100)
     platform = models.CharField(max_length=100) #e.g. am5, lga1156, but ekhane supported shb platform er naam e nite hobe. Probably string matching kora lagbe with cpu
     number_of_fans = models.IntegerField()
@@ -49,13 +49,13 @@ class CPUCooler(models.Model):
     material = models.CharField(max_length=100)
     dimension = models.TextField()
     warranty = models.IntegerField() #in years
-    #price = models.FloatField()
+    price = models.FloatField(default=0)
 
     def __str__(self) -> str:
         return self.name
 
 class RAM(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='RAM/',null=True, blank=True)
     name = models.CharField(max_length=100)
     ram_type = models.CharField(max_length=100) #e.g. ddr5,ddr4
     ram_capacity = models.IntegerField()
@@ -64,10 +64,10 @@ class RAM(models.Model):
     cas_latency = models.CharField(max_length=100)
     warranty = models.IntegerField() #in years
     power= models.FloatField() #scarping a pawa difficult
-    #price = models.FloatField()
+    price = models.FloatField(default=0)
 
 class Storage(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='Storage/',null=True, blank=True)
     name = models.CharField(max_length=100)
     storage_type = models.CharField(max_length=100) #either ssd or hdd
     storage_capacity = models.IntegerField()
@@ -77,13 +77,13 @@ class Storage(models.Model):
     warranty = models.IntegerField() #in years
     power= models.FloatField() #scarping a pawa difficult
     #ekta text field dewa jay for other details, not for now
-    #price = models.FloatField()
+    price = models.FloatField(default=0)
 
     def __str__(self) -> str:
         return self.name
 
 class GPU(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='GPU/',null=True, blank=True)
     name = models.CharField(max_length=100)
     chip_maker = models.CharField(max_length=100) #nvidia,intel or amd
     memory_capacity = models.IntegerField()
@@ -96,13 +96,13 @@ class GPU(models.Model):
     other_features = models.TextField()
     warranty = models.IntegerField() #in years
     power= models.IntegerField()
-    #price = models.FloatField()
+    price = models.FloatField(default=0)
 
     def __str__(self) -> str:
          return self.name
 
 class PSU(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='PSU/',null=True, blank=True)
     name = models.CharField(max_length=100)
     capacity = models.IntegerField() #in watts
     certification = models.CharField(max_length=100)
@@ -110,13 +110,13 @@ class PSU(models.Model):
     connector_types = models.TextField()
     warranty = models.IntegerField() #in years
     #pore dimension add kore case compatibility check kora jabe
-    #price = models.FloatField()
+    price = models.FloatField(default=0)
 
     def __str__(self) -> str:
          return self.name
 
 class CASE(models.Model):
-    photo= models.ImageField()
+    photo= models.ImageField(upload_to='CASE/',null=True, blank=True)
     name = models.CharField(max_length=100)
     case_type = models.CharField(max_length=100) #minitower,full-tower
     mobo_form_factor = models.CharField(max_length=100)
@@ -130,7 +130,7 @@ class CASE(models.Model):
     front_panel_ports = models.CharField(max_length=100)
     gpu_and_cooler_clearance = models.CharField(max_length=100)
     warranty = models.IntegerField() #in years
-    #price = models.FloatField()
+    price = models.FloatField(default=0)
 
     def __str__(self) -> str:
          return self.name
