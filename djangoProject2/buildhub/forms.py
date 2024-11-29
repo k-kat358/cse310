@@ -1,7 +1,14 @@
 from django import forms
-from .models import BlogPost
+from django.forms import inlineformset_factory
+from .models import BlogPost, BlogImage,Comment
 
 class BlogForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = "__all__"
+        fields = ['display_image','title', 'content']
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']

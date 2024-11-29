@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 class BlogPost(models.Model):
+    display_image= models.ImageField(upload_to='blog_images/',null=True,blank=True)
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
