@@ -5,4 +5,5 @@ from .import views
 
 urlpatterns = [
 path('cpu/', views.cpu, name='cpu'),
+path('mobo/', views.mobo, name='mobo'),
 ]
