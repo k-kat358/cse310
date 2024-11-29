@@ -11,4 +11,5 @@ path('ram/', views.ram, name='ram'),
 path('storage/', views.storage, name='storage'),
 path('gpu/', views.gpu, name='gpu'),
 path('psu/', views.psu, name='psu'),
+path('case/', views.case, name='case'),
 ]

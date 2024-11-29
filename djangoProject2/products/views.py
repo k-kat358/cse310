@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import CPU,MOBO,CPUCooler,RAM,Storage,GPU,PSU
+from .models import CPU,MOBO,CPUCooler,RAM,Storage,GPU,PSU,CASE
 def cpu(request):
     cpu= CPU.objects.all()
     return render(request,'products/cpu.html',{'cpu':cpu})
@@ -23,6 +23,10 @@ def storage(request):
 def gpu(request):
     gpu= GPU.objects.all()
     return render(request,'products/gpu.html',{'gpu':gpu})
+
+def case(request):
+    case= CASE.objects.all()
+    return render(request,'products/case.html',{'case':case})
 
 def psu(request):
     psu= PSU.objects.all()
