@@ -8,4 +8,5 @@ path('cpu/', views.cpu, name='cpu'),
 path('mobo/', views.mobo, name='mobo'),
 path('cpucooler/', views.cpucooler, name='cpucooler'),
 path('ram/', views.ram, name='ram'),
+path('storage/', views.storage, name='storage'),
 ]

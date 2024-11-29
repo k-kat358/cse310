@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import CPU,MOBO,CPUCooler,RAM
+from .models import CPU,MOBO,CPUCooler,RAM,Storage
 def cpu(request):
     cpu= CPU.objects.all()
     return render(request,'products/cpu.html',{'cpu':cpu})
@@ -15,3 +15,7 @@ def cpucooler(request):
 def ram(request):
     ram= RAM.objects.all()
     return render(request,'products/ram.html',{'ram':ram})
+
+def storage(request):
+    storage= Storage.objects.all()
+    return render(request,'products/storage.html',{'storage':storage})
