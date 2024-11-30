@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ object.name }}</h1>
+{% if object.photo %}
+    <img src="{{ object.photo.url }}" alt="{{ object.name }}" style="max-width: 300px;">
+{% endif %}
+
+<h2>Specifications</h2>
+<ul>
+    {% if object.platform %}<li><strong>Platform:</strong> {{ object.platform }}</li>{% endif %}
+    {% if object.generation %}<li><strong>Generation:</strong> {{ object.generation }}</li>{% endif %}
+    {% if object.cores %}<li><strong>Cores:</strong> {{ object.cores }}</li>{% endif %}
+    {% if object.threads %}<li><strong>Threads:</strong> {{ object.threads }}</li>{% endif %}
+    {% if object.core_clock %}<li><strong>Core Clock:</strong> {{ object.core_clock }} GHz</li>{% endif %}
+    {% if object.boost_clock %}<li><strong>Boost Clock:</strong> {{ object.boost_clock }} GHz</li>{% endif %}
+    {% if object.cache %}<li><strong>Cache:</strong> {{ object.cache }} MB</li>{% endif %}
+    {% if object.power %}<li><strong>Power:</strong> {{ object.power }} W</li>{% endif %}
+    {% if object.warranty %}<li><strong>Warranty:</strong> {{ object.warranty }} years</li>{% endif %}
+    {% if object.price %}<li><strong>Price:</strong> ${{ object.price }}</li>{% endif %}
+    
+    {% if object.case_type %}<li><strong>Type:</strong> {{ object.case_type }}</li>{% endif %}
+    {% if object.mobo_form_factor %}<li><strong>Motherboard Form Factor:</strong> {{ object.mobo_form_factor }}</li>{% endif %}
+    {% if object.color %}<li><strong>Color:</strong> {{ object.color }}</li>{% endif %}
+    {% if object.material %}<li><strong>Material:</strong> {{ object.material }}</li>{% endif %}
+    {% if object.dimensions %}<li><strong>Dimensions:</strong> {{ object.dimensions }}</li>{% endif %}
+    {% if object.expansion_slots %}<li><strong>Expansion Slots:</strong> {{ object.expansion_slots }}</li>{% endif %}
+    {% if object.radiator_support %}<li><strong>Radiator Support:</strong> {{ object.radiator_support }}</li>{% endif %}
+    {% if object.fan_support %}<li><strong>Fan Support:</strong> {{ object.fan_support }}</li>{% endif %}
+    {% if object.storage_support %}<li><strong>Storage Support:</strong> {{ object.storage_support }}</li>{% endif %}
+    {% if object.front_panel_ports %}<li><strong>Front Panel Ports:</strong> {{ object.front_panel_ports }}</li>{% endif %}
+    {% if object.gpu_and_cooler_clearance %}<li><strong>GPU and Cooler Clearance:</strong> {{ object.gpu_and_cooler_clearance }}</li>{% endif %}
+
+    {% if object.chipset %}<li><strong>Chipset:</strong> {{ object.chipset }}</li>{% endif %}
+    {% if object.audio_chipset %}<li><strong>Audio Chipset:</strong> {{ object.audio_chipset }}</li>{% endif %}
+    {% if object.ram_type %}<li><strong>RAM Type:</strong> {{ object.ram_type }}</li>{% endif %}
+    {% if object.ram_capacity %}<li><strong>RAM Capacity:</strong> {{ object.ram_capacity }} GB</li>{% endif %}
+    {% if object.ram_slot %}<li><strong>RAM Slot:</strong> {{ object.ram_slot }}</li>{% endif %}
+    {% if object.connector_and_ports %}<li><strong>Connectors and Ports:</strong> {{ object.connector_and_ports }}</li>{% endif %}
+    
+    {% if object.number_of_fans %}<li><strong>Number of Fans:</strong> {{ object.number_of_fans }}</li>{% endif %}
+    {% if object.fan_speed %}<li><strong>Fan Speed:</strong> {{ object.fan_speed }} RPM</li>{% endif %}
+    {% if object.fan_airflow %}<li><strong>Fan Airflow:</strong> {{ object.fan_airflow }} CFM</li>{% endif %}
+    {% if object.noise_level %}<li><strong>Noise Level:</strong> {{ object.noise_level }} dB</li>{% endif %}
+    {% if object.dimension %}<li><strong>Dimension:</strong> {{ object.dimension }}</li>{% endif %}
+
+    {% if object.storage_type %}<li><strong>Storage Type:</strong> {{ object.storage_type }}</li>{% endif %}
+    {% if object.storage_capacity %}<li><strong>Storage Capacity:</strong> {{ object.storage_capacity }} GB</li>{% endif %}
+    {% if object.form_factor %}<li><strong>Form Factor:</strong> {{ object.form_factor }}</li>{% endif %}
+    {% if object.speed %}<li><strong>Speed:</strong> {{ object.speed }}</li>{% endif %}
+    {% if object.interface %}<li><strong>Interface:</strong> {{ object.interface }}</li>{% endif %}
+
+    {% if object.chip_maker %}<li><strong>Chip Maker:</strong> {{ object.chip_maker }}</li>{% endif %}
+    {% if object.memory_clock %}<li><strong>Memory Clock:</strong> {{ object.memory_clock }}</li>{% endif %}
+    {% if object.cuda_core_or_stream_processor %}<li><strong>CUDA Core/Stream Processor:</strong> {{ object.cuda_core_or_stream_processor }}</li>{% endif %}
+    {% if object.dimension_weight %}<li><strong>Dimensions and Weight:</strong> {{ object.dimension_weight }}</li>{% endif %}
+    {% if object.other_features %}<li><strong>Other Features:</strong> {{ object.other_features }}</li>{% endif %}
+    
+    {% if object.capacity %}<li><strong>Capacity:</strong> {{ object.capacity }} W</li>{% endif %}
+    {% if object.certification %}<li><strong>Certification:</strong> {{ object.certification }}</li>{% endif %}
+    {% if object.modular_type %}<li><strong>Modular Type:</strong> {{ object.modular_type }}</li>{% endif %}
+    {% if object.connector_types %}<li><strong>Connector Types:</strong> {{ object.connector_types }}</li>{% endif %}
+</ul>
+
+<a href="{% url 'builder' %}" class="btn btn-primary">Back to Products</a>
+{% endblock %}

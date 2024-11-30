@@ -34,7 +34,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ item.name }}</h5>
                                 <p class="card-text text-center">{{ item.price }}</p>
-                                <a href="#" class="btn btn-primary">View Details</a>
+                                <a href="{% url 'case_detail' item.id %}" class="btn btn-primary">View Details</a>
                                 <a class="btn btn-danger mx-2" type="button" href="#">Add to Cart</a>
                             </div>
                         </div>
