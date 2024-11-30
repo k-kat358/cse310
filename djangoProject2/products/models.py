@@ -60,11 +60,14 @@ class RAM(models.Model):
     ram_type = models.CharField(max_length=100) #e.g. ddr5,ddr4
     ram_capacity = models.IntegerField()
     ram_frequency = models.IntegerField() #unit Mhz
-    operating_voltage = models.IntegerField() #in volt
+    operating_voltage = models.FloatField() #in volt
     cas_latency = models.CharField(max_length=100)
     warranty = models.IntegerField() #in years
     power= models.FloatField() #scarping a pawa difficult
     price = models.FloatField(default=0)
+
+    def __str__(self) -> str:
+        return self.name
 
 class Storage(models.Model):
     photo= models.ImageField(upload_to='Storage/',null=True, blank=True)
@@ -72,7 +75,7 @@ class Storage(models.Model):
     storage_type = models.CharField(max_length=100) #either ssd or hdd
     storage_capacity = models.IntegerField()
     form_factor = models.CharField(max_length=100) #e.g 3.5inch for hdd, m.2 2280 for ssd
-    speed = models.IntegerField() #mbps
+    speed = models.CharField(max_length=100) #mbps, r/w
     interface = models.CharField(max_length=100) #m.2 , sata3
     warranty = models.IntegerField() #in years
     power= models.FloatField() #scarping a pawa difficult
