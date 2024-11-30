@@ -15,9 +15,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td> Price (high to low)</td></tr>
-                            <tr><td> Price (low to high)</td></tr>
-                            <tr><td>rating</td></tr>
+                            <tr><td>Price (high to low)</td></tr>
+                            <tr><td>Price (low to high)</td></tr>
+                            <tr><td>Alphabetical Order(A-Z)</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -31,9 +31,10 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-sm">
                             <img src="{{ item.photo.url }}" alt="{{ item.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <h5 class="card-title">{{ item.name }}</h5>
-                                <p class="card-text text-center">{{ item.price }}</p>
+                                <p class="card-text text-muted">{{ item.shop }}</p> <!-- Display shop name -->
+                                <p class="card-text">{{ item.price }}৳</p>
                                 <a href="{% url 'gpu_detail' item.id %}" class="btn btn-primary">View Details</a>
                                 <a class="btn btn-danger mx-2" type="button" href="#">Add to Cart</a>
                             </div>

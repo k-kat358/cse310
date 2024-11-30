@@ -1,4 +1,6 @@
 # Create your models here.
+from typing import Tuple
+
 from django.db import models
 
 #cpu,cpu cooler, motherboard, memory, storage, gpu,psu, case
@@ -16,9 +18,13 @@ class CPU(models.Model):
     power= models.FloatField()
     warranty = models.IntegerField()
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.name} (Shop: {self.shop})"
 
 class MOBO(models.Model):
     photo= models.ImageField(upload_to='MOBO/',null=True, blank=True)
@@ -34,9 +40,13 @@ class MOBO(models.Model):
     warranty = models.IntegerField() #in years
     power= models.FloatField() #scarping a pawa difficult
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.name} (Shop: {self.shop})"
 
 class CPUCooler(models.Model):
     photo= models.ImageField(upload_to='CPUCOOLER/',null=True, blank=True)
@@ -50,9 +60,13 @@ class CPUCooler(models.Model):
     dimension = models.TextField()
     warranty = models.IntegerField() #in years
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.name} (Shop: {self.shop})"
 
 class RAM(models.Model):
     photo= models.ImageField(upload_to='RAM/',null=True, blank=True)
@@ -65,9 +79,13 @@ class RAM(models.Model):
     warranty = models.IntegerField() #in years
     power= models.FloatField() #scarping a pawa difficult
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.name} (Shop: {self.shop})"
 
 class Storage(models.Model):
     photo= models.ImageField(upload_to='Storage/',null=True, blank=True)
@@ -81,9 +99,13 @@ class Storage(models.Model):
     power= models.FloatField() #scarping a pawa difficult
     #ekta text field dewa jay for other details, not for now
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.name} (Shop: {self.shop})"
 
 class GPU(models.Model):
     photo= models.ImageField(upload_to='GPU/',null=True, blank=True)
@@ -100,9 +122,13 @@ class GPU(models.Model):
     warranty = models.IntegerField() #in years
     power= models.IntegerField()
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-         return self.name
+        return f"{self.name} (Shop: {self.shop})"
 
 class PSU(models.Model):
     photo= models.ImageField(upload_to='PSU/',null=True, blank=True)
@@ -114,9 +140,13 @@ class PSU(models.Model):
     warranty = models.IntegerField() #in years
     #pore dimension add kore case compatibility check kora jabe
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-         return self.name
+        return f"{self.name} (Shop: {self.shop})"
 
 class CASE(models.Model):
     photo= models.ImageField(upload_to='CASE/',null=True, blank=True)
@@ -134,6 +164,10 @@ class CASE(models.Model):
     gpu_and_cooler_clearance = models.CharField(max_length=100)
     warranty = models.IntegerField() #in years
     price = models.FloatField(default=0)
+    shop = models.CharField(max_length=100, default="Default Shop")
+
+    class Meta:
+        ordering = ['name', 'shop']
 
     def __str__(self) -> str:
-         return self.name
+        return f"{self.name} (Shop: {self.shop})"

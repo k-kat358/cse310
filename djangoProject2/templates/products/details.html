@@ -16,8 +16,8 @@
     {% if object.cache %}<li><strong>Cache:</strong> {{ object.cache }} MB</li>{% endif %}
     {% if object.power %}<li><strong>Power:</strong> {{ object.power }} W</li>{% endif %}
     {% if object.warranty %}<li><strong>Warranty:</strong> {{ object.warranty }} years</li>{% endif %}
-    {% if object.price %}<li><strong>Price:</strong> ${{ object.price }}</li>{% endif %}
-    
+    {% if object.price %}<li><strong>Price:</strong> {{ object.price }}৳</li>{% endif %}
+
     {% if object.case_type %}<li><strong>Type:</strong> {{ object.case_type }}</li>{% endif %}
     {% if object.mobo_form_factor %}<li><strong>Motherboard Form Factor:</strong> {{ object.mobo_form_factor }}</li>{% endif %}
     {% if object.color %}<li><strong>Color:</strong> {{ object.color }}</li>{% endif %}
@@ -36,7 +36,7 @@
     {% if object.ram_capacity %}<li><strong>RAM Capacity:</strong> {{ object.ram_capacity }} GB</li>{% endif %}
     {% if object.ram_slot %}<li><strong>RAM Slot:</strong> {{ object.ram_slot }}</li>{% endif %}
     {% if object.connector_and_ports %}<li><strong>Connectors and Ports:</strong> {{ object.connector_and_ports }}</li>{% endif %}
-    
+
     {% if object.number_of_fans %}<li><strong>Number of Fans:</strong> {{ object.number_of_fans }}</li>{% endif %}
     {% if object.fan_speed %}<li><strong>Fan Speed:</strong> {{ object.fan_speed }} RPM</li>{% endif %}
     {% if object.fan_airflow %}<li><strong>Fan Airflow:</strong> {{ object.fan_airflow }} CFM</li>{% endif %}
@@ -54,7 +54,7 @@
     {% if object.cuda_core_or_stream_processor %}<li><strong>CUDA Core/Stream Processor:</strong> {{ object.cuda_core_or_stream_processor }}</li>{% endif %}
     {% if object.dimension_weight %}<li><strong>Dimensions and Weight:</strong> {{ object.dimension_weight }}</li>{% endif %}
     {% if object.other_features %}<li><strong>Other Features:</strong> {{ object.other_features }}</li>{% endif %}
-    
+
     {% if object.capacity %}<li><strong>Capacity:</strong> {{ object.capacity }} W</li>{% endif %}
     {% if object.certification %}<li><strong>Certification:</strong> {{ object.certification }}</li>{% endif %}
     {% if object.modular_type %}<li><strong>Modular Type:</strong> {{ object.modular_type }}</li>{% endif %}
