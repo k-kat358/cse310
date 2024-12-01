@@ -6,4 +6,6 @@ Changelog 1 : Samir (1/12/24)
 5.Adjusted inline css files further > filter by box is now aligned properly, product cards now have even spacings 
 				    above and below
 6.Updated details.html in templates>products (for all models). Now shows units in taka and other small adjustments
-next >> filter by functional korbo  
+next >> filter by functional korbo
+
+Changelog 2 : Sadia (1/12/24)

@@ -24,7 +24,7 @@ class GPUAdmin(admin.ModelAdmin):
     save_as = True  # Enable "Save as new" feature
 
 class CASEAdmin(admin.ModelAdmin):
-    save_as = True  # Enable "Save as new" feature
+    save_as = True
 
 # Register the models with their respective ModelAdmins
 admin.site.register(CPU, CPUAdmin)
