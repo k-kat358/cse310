@@ -1,6 +1,6 @@
 # Create your models here.
 from typing import Tuple
-
+from django.contrib.auth.models import User
 from django.db import models
 
 #cpu,cpu cooler, motherboard, memory, storage, gpu,psu, case
@@ -171,3 +171,44 @@ class CASE(models.Model):
 
     def __str__(self) -> str:
         return f"{self.name} (Shop: {self.shop})"
+
+
+
+
+class CartItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cart")
+    product_type = models.CharField(max_length=50)  # e.g., 'CPU', 'GPU', etc.
+    product_id = models.PositiveIntegerField()  # ID of the product from the respective table
+    quantity = models.PositiveIntegerField(default=1)
+    price = models.FloatField()  # Store the price of the product at the time of addition
+
+    def __str__(self):
+        return f"{self.product_type} - {self.product_id} (Qty: {self.quantity}) for {self.user.username}"
+
+    @property
+    def total_price(self):
+        return self.quantity * self.price
+
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
+    created_at = models.DateTimeField(auto_now_add=True)
+    total_amount = models.FloatField()
+    status = models.CharField(max_length=50, default="Pending")  # e.g., Pending, Completed, Cancelled
+
+    def __str__(self):
+        return f"Order #{self.id} by {self.user.username}"
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
+    product_type = models.CharField(max_length=50)
+    product_id = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField()
+    price = models.FloatField()
+
+    def __str__(self):
+        return f"{self.product_type} - {self.product_id} (Qty: {self.quantity}) for Order #{self.order.id}"
+
+    @property
+    def total_price(self):
+        return self.quantity * self.price

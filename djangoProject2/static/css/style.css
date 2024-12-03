@@ -128,7 +128,7 @@
     margin-bottom: 20px;
 }
 .feature a{
-    text-decoration: none;
+    /*text-decoration: none; */
 }
 .feature p{
     font-size: 13px;
@@ -192,7 +192,7 @@
     
 }
 .pro a{
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 .copy{
     font-size: 12px;

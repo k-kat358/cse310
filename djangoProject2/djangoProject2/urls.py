@@ -18,6 +18,9 @@ urlpatterns = [
 
     path('buildhub/', include('buildhub.urls')),
 
+   path('userprofile/', include('userprofile.urls')),
+    path('guides/', include('guides.urls')),
+
 ]
 
 # Serve media files during development

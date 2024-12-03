@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center mb-4">Guides Blog</h1>
+
+    <!-- Create Guide Button -->
+    {% if user.is_authenticated and user.is_superuser %}
+    <div class="text-end mb-3">
+        <a href="{% url 'guide_create' %}" class="btn btn-primary" style="width: 150px;">Create Guide</a>
+    </div>
+    {% endif %}
+
+    <!-- Blog Style Guides -->
+    {% for guide in guides %}
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2>{{ guide.title }}</h2>
+        </div>
+        <div class="card-body">
+            <!-- Display image -->
+            {% if guide.image %}
+            <div class="mb-3 text-center">
+                <img src="{{ guide.image.url }}" alt="{{ guide.title }}" class="img-fluid rounded" style="max-height: 300px;">
+            </div>
+            {% endif %}
+            
+            <p><strong>CPU:</strong> {{ guide.cpu }}</p>
+            <p><strong>CPU Cooler:</strong> {{ guide.cpu_cooler }}</p>
+            <p><strong>Motherboard:</strong> {{ guide.motherboard }}</p>
+            <p><strong>Memory:</strong> {{ guide.memory }}</p>
+            <p><strong>Storage:</strong> {{ guide.storage }}</p>
+            <p><strong>GPU:</strong> {{ guide.gpu }}</p>
+            <p><strong>PSU:</strong> {{ guide.psu }}</p>
+            <p><strong>Case:</strong> {{ guide.case }}</p>
+        </div>
+        <div class="card-footer text-end">
+            {% if user.is_authenticated and user.is_superuser %}
+            <a href="{% url 'guide_update' guide.pk %}" class="btn btn-warning btn-sm">Edit</a>
+            <form action="{% url 'guide_delete' guide.pk %}" method="post" style="display: inline-block;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <div class="alert alert-info text-center">
+        No guides available.
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

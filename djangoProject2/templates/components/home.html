@@ -8,7 +8,7 @@
             <div class="build">
                 <h1>Pick Parts. Build Your PC. <br> Compare and Share.</h1>
                 <p>We provide part selection, pricing, and compatibility guidance for <br> do-it-yourself computer builders.</p>
-                <a href="{% url 'builder' %}" class="btn">Start Your Build</a>
+                <a href="{% url 'cpu' %}" class="btn">Start Your Build</a>
             </div>
         </div>
     </section>
@@ -18,61 +18,38 @@
 
 
       <!--guides part start here-->
-      <section>
-        <div class="guid">
-          <div class="container">
+<section>
+    <div class="guid">
+        <div class="container">
+            <h1 class="text-center mb-4">Build Guides</h1>
+            <div class="d-flex justify-content-center mb-4">
+                <a href="{% url 'guide_list' %}" class="btn btn-primary">View Guide</a>
+            </div> 
+            <p class="text-center mb-4">
+                Building your own PC and need ideas on where to get started? Explore our build guides
+                which cover systems for a variety of use-cases and budgets.
+            </p>
             <div class="row">
-              <div class="budgets col-md-3">
-                <h1>Build Guides</h1>
-                <p>Building your own PC and <br> need ideas on where to get <br> started? Explore our build <br> guides which cover systems <br> for a variety of use-cases and <br> budgets.</p>
-                <a href="" class="btn">View Buid Guides</a>
-              </div>
-              <div class="pc col-md-3">
-                <img src="{% static 'image/img1.jpg' %}" alt="">
-                <h5>Entry Level Intel Gaming Build</h5>
-                <p>Intel Core i3-12100F</p>
-                <p>Parametric Video Card (Chipset: Radeon RX 6600)</p>
-                <p>Fractal Design Pop Mini Air MicroATX MId Tower</p>
-                <span></span>
-                <div class="value">
-                  <p>$568.41</p>
-                  <div class="comment">
-                    <p><i class="fa-regular fa-message"></i>131</p>
-                  </div>
+                {% for guide in guides %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        {% if guide.image %}
+                        <img src="{{ guide.image.url }}" class="card-img-top" alt="{{ guide.title }}" style="max-height: 200px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ guide.title }}</h5>
+                            <p class="card-text"><strong></strong> {{ guide.cpu }}</p>
+                            <p class="card-text"><strong></strong> {{ guide.gpu }}</p>
+                        </div>
+                        
+                    </div>
                 </div>
-              </div>
-              <div class="pc col-md-3">
-                <img src="{% static 'image/img1.jpg' %}" alt="">
-                <h5>Entry Level Intel Gaming Build</h5>
-                <p>Intel Core i3-12100F</p>
-                <p>Parametric Video Card (Chipset: Radeon RX 6600)</p>
-                <p>Fractal Design Pop Mini Air MicroATX MId Tower</p>
-                <span></span>
-                <div class="value">
-                  <p>$568.41</p>
-                  <div class="comment">
-                    <p><i class="fa-regular fa-message"></i>131</p>
-                  </div>
-                </div>
-              </div>
-              <div class="pc col-md-3">
-                <img src="{% static 'image/img1.jpg' %}" alt="">
-                <h5>Entry Level Intel Gaming Build</h5>
-                <p>Intel Core i3-12100F</p>
-                <p>Parametric Video Card (Chipset: Radeon RX 6600)</p>
-                <p>Fractal Design Pop Mini Air MicroATX MId Tower</p>
-                <span></span>
-                <div class="value">
-                  <p>$568.41</p>
-                  <div class="comment">
-                    <p><i class="fa-regular fa-message"></i>131</p>
-                  </div>
-                </div>
-              </div>
+                {% endfor %}
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
+
       <!--guides part start here-->
 
       <!--completed part start here-->

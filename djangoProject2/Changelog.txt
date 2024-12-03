@@ -9,3 +9,7 @@ Changelog 1 : Samir (1/12/24)
 next >> filter by functional korbo
 
 Changelog 2 : Sadia (1/12/24)
+1. Added products to the database
+
+Changelog 3 : Samir (3/12/24)
+1. Page is now 90% functional, one card row of homepage still needs updating. Existing error - form of guides page(pic)

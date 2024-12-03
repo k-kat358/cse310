@@ -1,48 +1,47 @@
 {% load static %}
 <section>
-    <div >
-         <!-- Navbar Start -->
+    <div>
+        <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">  <i class="fa-solid fa-house" style="color: #ffffff;"></i></a> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'builder' %}">Builder <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Guides</a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link" href='{% url "blog" %}'>Build Hub</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Product
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-                {% if user.is_authenticated %}
-                    <div class="d-flex align-items-center">
-                        <a href="{% url 'register' %}"><h2 class="m-0 text-primary"><i class="fa-solid fa-user"></i> Hello {{ user }} </h2></a>
-                        <a href="{% url 'logout' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63; ">Logout</a>
-                    </div>
-                {% else %}
-                    <div class="d-flex align-items-center">
-                        <a href="{% url 'register' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63;">Register User</a>
-                        <a href="{% url 'login' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63;">Login</a>
-                    </div>
-                {% endif %}
-            
+            <a class="navbar-brand" href="{% url 'home' %}">  
+                <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+            </a> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'cpu' %}">Builder <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'guide_list' %}">Guides</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='{% url "blog" %}'>Build Hub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='{% url "cart_view" %}'>Current Build</a>
+                    </li>
+                    <!-- Updated My Builds link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href='{% url "order_list" %}'>My Builds</a>
+                    </li>
+                </ul>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="d-flex align-items-center">
+                    <a href="{% url 'profile' %}"><h3 class="m-0 text-primary"><i class="fa-solid fa-user"></i> Hello {{ user }} </h3></a>
+                    <a href="{% url 'logout' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63;">Logout</a>
+                </div>
+            {% else %}
+                <div class="d-flex align-items-center">
+                    <a href="{% url 'register' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63;">Register User</a>
+                    <a href="{% url 'login' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63;">Login</a>
+                </div>
+            {% endif %}
         </nav>
-<!-- Navbar End -->
+        <!-- Navbar End -->
     </div>
 </section>
+

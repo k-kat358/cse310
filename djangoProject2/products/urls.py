@@ -20,4 +20,11 @@ path('storage/<int:storage_id>/', views.storage_detail, name='storage_detail'),
 path('gpu/<int:gpu_id>/', views.gpu_detail, name='gpu_detail'),
 path('psu/<int:psu_id>/', views.psu_detail, name='psu_detail'),
 path('case/<int:case_id>/', views.case_detail, name='case_detail'),
+
+    path("cart/", views.view_cart, name="cart_view"),
+    path("cart/add/<str:product_type>/<int:product_id>/", views.add_to_cart, name="add_to_cart"),
+    path("cart/remove/<int:cart_item_id>/", views.remove_from_cart, name="remove_from_cart"),
+    path("order/place/", views.place_order, name="place_order"),
+    path("order/<int:order_id>/", views.order_details, name="order_details"),
+    path('orders/', views.order_list, name='order_list'),
 ]

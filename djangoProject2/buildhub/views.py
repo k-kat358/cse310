@@ -2,11 +2,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import BlogForm, CommentForm
 from .models import BlogPost, Like, Comment
+from django.db.models import Count
+
 
 
 def blog(request):
-    blog = BlogPost.objects.all().order_by('-created')
-    return render(request, 'buildhub/blog.html', {'blog': blog})
+    blogs = BlogPost.objects.annotate(like_count=Count('likes'))
+    sort_by = request.GET.get('sort', 'date')
+    if sort_by == 'likes':
+        blogs = blogs.order_by('-like_count', '-created')
+    else:
+        blogs = blogs.order_by('-created')
+
+    return render(request, 'buildhub/blog.html', {'blog': blogs})
+
 
 
 @login_required
@@ -20,7 +29,7 @@ def add_blog(request):
             return redirect('blog')
     else:
         form = BlogForm()
-    return render(request, 'buildhub/blogform.html', {'form': form, 'update': False})
+    return render(request, 'buildhub/blog_form.html', {'form': form, 'update': False})
 
 
 def blog_details(request, blog_id):
@@ -52,7 +61,6 @@ def add_comment(request, blog_id):
         form = CommentForm()
     return render(request, 'buildhub/comment_form.html', {'form': form, 'blog': blog})
 
-
 @login_required
 def update_blog(request, blog_id):
     blog = get_object_or_404(BlogPost, id=blog_id, author=request.user)
@@ -63,7 +71,8 @@ def update_blog(request, blog_id):
             return redirect('blog_details', blog_id=blog.id)
     else:
         form = BlogForm(instance=blog)
-    return render(request, 'buildhub/blogform.html', {'form': form, 'update': True})
+    return render(request, 'buildhub/blog_form.html', {'form': form, 'update': True})
+
 
 @login_required
 def delete_blog(request, blog_id):
@@ -85,6 +94,7 @@ def edit_comment(request, comment_id):
     else:
         form = CommentForm(instance=comment)
     return render(request, 'buildhub/comment_form.html', {'form': form, 'comment': comment, 'blog': comment.blog})
+
 
 @login_required
 def delete_comment(request, comment_id):
