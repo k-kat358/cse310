@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container my-4">
-    <h1>{{ guide.title|default:"New Guide" }}</h1>
+<div class="container my-4" style="max-width: 600px; margin: 0 auto; background-color: #f8f9fa; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h1 class="text-center mb-4" style="font-size: 24px; color: #343a40;">{{ guide.title|default:"New Guide" }}</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-success mt-3">Save</button>
-        <a href="{% url 'guide_list' %}" class="btn btn-secondary mt-3">Cancel</a>
+        <div style="margin-bottom: 15px;">
+            {{ form.as_p }}
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success mt-3" style="width: 100px;">Save</button>
+            <a href="{% url 'guide_list' %}" class="btn btn-secondary mt-3" style="width: 100px;">Cancel</a>
+        </div>
     </form>
 </div>
 {% endblock %}

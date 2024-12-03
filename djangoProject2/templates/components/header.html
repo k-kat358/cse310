@@ -18,21 +18,21 @@
                         <a class="nav-link" href="{% url 'guide_list' %}">Guides</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='{% url "blog" %}'>Build Hub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href='{% url "cart_view" %}'>Current Build</a>
+                        <a class="nav-link" href='{% url "blog" %}'>BuildHub</a>
                     </li>
                     <!-- Updated My Builds link -->
                     <li class="nav-item">
                         <a class="nav-link" href='{% url "order_list" %}'>My Builds</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='{% url "cart_view" %}'>Cart</a>
+                    </li>
                 </ul>
             </div>
             {% if user.is_authenticated %}
                 <div class="d-flex align-items-center">
-                    <a href="{% url 'profile' %}"><h3 class="m-0 text-primary"><i class="fa-solid fa-user"></i> Hello {{ user }} </h3></a>
-                    <a href="{% url 'logout' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63;">Logout</a>
+                    <a href="{% url 'profile' %}"><h3 class="m-0 text-danger"><i class="fa-solid fa-user"></i> {{ user }}  </h3></a>
+                    <a href="{% url 'logout' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63;"> Logout </a>
                 </div>
             {% else %}
                 <div class="d-flex align-items-center">

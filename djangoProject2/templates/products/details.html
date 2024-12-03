@@ -1,65 +1,297 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{{ object.name }}</h1>
+<h1 style="text-align: center;">{{ object.name }}</h1>
+
 {% if object.photo %}
-    <img src="{{ object.photo.url }}" alt="{{ object.name }}" style="max-width: 300px;">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="{{ object.photo.url }}" alt="{{ object.name }}" style="max-width: 300px; border: 1px solid #ddd; border-radius: 8px;">
+    </div>
 {% endif %}
 
-<h2>Specifications</h2>
-<ul>
-    {% if object.platform %}<li><strong>Platform:</strong> {{ object.platform }}</li>{% endif %}
-    {% if object.generation %}<li><strong>Generation:</strong> {{ object.generation }}</li>{% endif %}
-    {% if object.cores %}<li><strong>Cores:</strong> {{ object.cores }}</li>{% endif %}
-    {% if object.threads %}<li><strong>Threads:</strong> {{ object.threads }}</li>{% endif %}
-    {% if object.core_clock %}<li><strong>Core Clock:</strong> {{ object.core_clock }} GHz</li>{% endif %}
-    {% if object.boost_clock %}<li><strong>Boost Clock:</strong> {{ object.boost_clock }} GHz</li>{% endif %}
-    {% if object.cache %}<li><strong>Cache:</strong> {{ object.cache }} MB</li>{% endif %}
-    {% if object.power %}<li><strong>Power:</strong> {{ object.power }} W</li>{% endif %}
-    {% if object.warranty %}<li><strong>Warranty:</strong> {{ object.warranty }} years</li>{% endif %}
-    {% if object.price %}<li><strong>Price:</strong> {{ object.price }}৳</li>{% endif %}
+<h2 style="text-align: center; margin-top: 20px;">Specifications</h2>
 
-    {% if object.case_type %}<li><strong>Type:</strong> {{ object.case_type }}</li>{% endif %}
-    {% if object.mobo_form_factor %}<li><strong>Motherboard Form Factor:</strong> {{ object.mobo_form_factor }}</li>{% endif %}
-    {% if object.color %}<li><strong>Color:</strong> {{ object.color }}</li>{% endif %}
-    {% if object.material %}<li><strong>Material:</strong> {{ object.material }}</li>{% endif %}
-    {% if object.dimensions %}<li><strong>Dimensions:</strong> {{ object.dimensions }}</li>{% endif %}
-    {% if object.expansion_slots %}<li><strong>Expansion Slots:</strong> {{ object.expansion_slots }}</li>{% endif %}
-    {% if object.radiator_support %}<li><strong>Radiator Support:</strong> {{ object.radiator_support }}</li>{% endif %}
-    {% if object.fan_support %}<li><strong>Fan Support:</strong> {{ object.fan_support }}</li>{% endif %}
-    {% if object.storage_support %}<li><strong>Storage Support:</strong> {{ object.storage_support }}</li>{% endif %}
-    {% if object.front_panel_ports %}<li><strong>Front Panel Ports:</strong> {{ object.front_panel_ports }}</li>{% endif %}
-    {% if object.gpu_and_cooler_clearance %}<li><strong>GPU and Cooler Clearance:</strong> {{ object.gpu_and_cooler_clearance }}</li>{% endif %}
+<table style="width: 100%; border-collapse: collapse; margin: 20px auto; max-width: 800px;">
+    <tbody>
+        {% if object.platform %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Platform</td>
+            <td style="padding: 10px;">{{ object.platform }}</td>
+        </tr>
+        {% endif %}
+        {% if object.generation %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Generation</td>
+            <td style="padding: 10px;">{{ object.generation }}</td>
+        </tr>
+        {% endif %}
+        {% if object.cores %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Cores</td>
+            <td style="padding: 10px;">{{ object.cores }}</td>
+        </tr>
+        {% endif %}
+        {% if object.threads %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Threads</td>
+            <td style="padding: 10px;">{{ object.threads }}</td>
+        </tr>
+        {% endif %}
+        {% if object.core_clock %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Core Clock</td>
+            <td style="padding: 10px;">{{ object.core_clock }} GHz</td>
+        </tr>
+        {% endif %}
+        {% if object.boost_clock %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Boost Clock</td>
+            <td style="padding: 10px;">{{ object.boost_clock }} GHz</td>
+        </tr>
+        {% endif %}
+        {% if object.cache %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Cache</td>
+            <td style="padding: 10px;">{{ object.cache }} MB</td>
+        </tr>
+        {% endif %}
+        {% if object.power %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Power</td>
+            <td style="padding: 10px;">{{ object.power }} W</td>
+        </tr>
+        {% endif %}
+        {% if object.warranty %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Warranty</td>
+            <td style="padding: 10px;">{{ object.warranty }} years</td>
+        </tr>
+        {% endif %}
+        {% if object.price %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Price</td>
+            <td style="padding: 10px;">{{ object.price }}৳</td>
+        </tr>
+        {% endif %}
+        {% if object.case_type %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Type</td>
+            <td style="padding: 10px;">{{ object.case_type }}</td>
+        </tr>
+        {% endif %}
+        {% if object.mobo_form_factor %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Motherboard Form Factor</td>
+            <td style="padding: 10px;">{{ object.mobo_form_factor }}</td>
+        </tr>
+        {% endif %}
+        {% if object.color %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Color</td>
+            <td style="padding: 10px;">{{ object.color }}</td>
+        </tr>
+        {% endif %}
+        {% if object.material %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Material</td>
+            <td style="padding: 10px;">{{ object.material }}</td>
+        </tr>
+        {% endif %}
+        {% if object.dimensions %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Dimensions</td>
+            <td style="padding: 10px;">{{ object.dimensions }}</td>
+        </tr>
+        {% endif %}
+        {% if object.expansion_slots %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Expansion Slots</td>
+            <td style="padding: 10px;">{{ object.expansion_slots }}</td>
+        </tr>
+        {% endif %}
+        {% if object.radiator_support %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Radiator Support</td>
+            <td style="padding: 10px;">{{ object.radiator_support }}</td>
+        </tr>
+        {% endif %}
+        {% if object.fan_support %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Fan Support</td>
+            <td style="padding: 10px;">{{ object.fan_support }}</td>
+        </tr>
+        {% endif %}
+        {% if object.storage_support %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Storage Support</td>
+            <td style="padding: 10px;">{{ object.storage_support }}</td>
+        </tr>
+        {% endif %}
+        {% if object.front_panel_ports %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Front Panel Ports</td>
+            <td style="padding: 10px;">{{ object.front_panel_ports }}</td>
+        </tr>
+        {% endif %}
+        {% if object.gpu_and_cooler_clearance %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">GPU and Cooler Clearance</td>
+            <td style="padding: 10px;">{{ object.gpu_and_cooler_clearance }}</td>
+        </tr>
+        {% endif %}
+        {% if object.chipset %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Chipset</td>
+            <td style="padding: 10px;">{{ object.chipset }}</td>
+        </tr>
+        {% endif %}
+        {% if object.audio_chipset %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Audio Chipset</td>
+            <td style="padding: 10px;">{{ object.audio_chipset }}</td>
+        </tr>
+        {% endif %}
+        {% if object.ram_type %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">RAM Type</td>
+            <td style="padding: 10px;">{{ object.ram_type }}</td>
+        </tr>
+        {% endif %}
+        {% if object.ram_capacity %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">RAM Capacity</td>
+            <td style="padding: 10px;">{{ object.ram_capacity }} GB</td>
+        </tr>
+        {% endif %}
+        {% if object.ram_slot %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">RAM Slot</td>
+            <td style="padding: 10px;">{{ object.ram_slot }}</td>
+        </tr>
+        {% endif %}
+        {% if object.connector_and_ports %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Connectors and Ports</td>
+            <td style="padding: 10px;">{{ object.connector_and_ports }}</td>
+        </tr>
+        {% endif %}
+        {% if object.number_of_fans %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Number of Fans</td>
+            <td style="padding: 10px;">{{ object.number_of_fans }}</td>
+        </tr>
+        {% endif %}
+        {% if object.fan_speed %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Fan Speed</td>
+            <td style="padding: 10px;">{{ object.fan_speed }} RPM</td>
+        </tr>
+        {% endif %}
+        {% if object.fan_airflow %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Fan Airflow</td>
+            <td style="padding: 10px;">{{ object.fan_airflow }} CFM</td>
+        </tr>
+        {% endif %}
+        {% if object.noise_level %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Noise Level</td>
+            <td style="padding: 10px;">{{ object.noise_level }} dB</td>
+        </tr>
+        {% endif %}
+        {% if object.dimension %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Dimension</td>
+            <td style="padding: 10px;">{{ object.dimension }}</td>
+        </tr>
+        {% endif %}
+        {% if object.storage_type %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Storage Type</td>
+            <td style="padding: 10px;">{{ object.storage_type }}</td>
+        </tr>
+        {% endif %}
+        {% if object.storage_capacity %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Storage Capacity</td>
+            <td style="padding: 10px;">{{ object.storage_capacity }} GB</td>
+        </tr>
+        {% endif %}
+        {% if object.form_factor %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Form Factor</td>
+            <td style="padding: 10px;">{{ object.form_factor }}</td>
+        </tr>
+        {% endif %}
+        {% if object.speed %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Speed</td>
+            <td style="padding: 10px;">{{ object.speed }}</td>
+        </tr>
+        {% endif %}
+        {% if object.interface %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Interface</td>
+            <td style="padding: 10px;">{{ object.interface }}</td>
+        </tr>
+        {% endif %}
+        {% if object.chip_maker %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Chip Maker</td>
+            <td style="padding: 10px;">{{ object.chip_maker }}</td>
+        </tr>
+        {% endif %}
+        {% if object.memory_clock %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Memory Clock</td>
+            <td style="padding: 10px;">{{ object.memory_clock }}</td>
+        </tr>
+        {% endif %}
+        {% if object.cuda_core_or_stream_processor %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">CUDA Core/Stream Processor</td>
+            <td style="padding: 10px;">{{ object.cuda_core_or_stream_processor }}</td>
+        </tr>
+        {% endif %}
+        {% if object.dimension_weight %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Dimensions and Weight</td>
+            <td style="padding: 10px;">{{ object.dimension_weight }}</td>
+        </tr>
+        {% endif %}
+        {% if object.other_features %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Other Features</td>
+            <td style="padding: 10px;">{{ object.other_features }}</td>
+        </tr>
+        {% endif %}
+        {% if object.capacity %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Capacity</td>
+            <td style="padding: 10px;">{{ object.capacity }} W</td>
+        </tr>
+        {% endif %}
+        {% if object.certification %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Certification</td>
+            <td style="padding: 10px;">{{ object.certification }}</td>
+        </tr>
+        {% endif %}
+        {% if object.modular_type %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Modular Type</td>
+            <td style="padding: 10px;">{{ object.modular_type }}</td>
+        </tr>
+        {% endif %}
+        {% if object.connector_types %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px; font-weight: bold;">Connector Types</td>
+            <td style="padding: 10px;">{{ object.connector_types }}</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
 
-    {% if object.chipset %}<li><strong>Chipset:</strong> {{ object.chipset }}</li>{% endif %}
-    {% if object.audio_chipset %}<li><strong>Audio Chipset:</strong> {{ object.audio_chipset }}</li>{% endif %}
-    {% if object.ram_type %}<li><strong>RAM Type:</strong> {{ object.ram_type }}</li>{% endif %}
-    {% if object.ram_capacity %}<li><strong>RAM Capacity:</strong> {{ object.ram_capacity }} GB</li>{% endif %}
-    {% if object.ram_slot %}<li><strong>RAM Slot:</strong> {{ object.ram_slot }}</li>{% endif %}
-    {% if object.connector_and_ports %}<li><strong>Connectors and Ports:</strong> {{ object.connector_and_ports }}</li>{% endif %}
-
-    {% if object.number_of_fans %}<li><strong>Number of Fans:</strong> {{ object.number_of_fans }}</li>{% endif %}
-    {% if object.fan_speed %}<li><strong>Fan Speed:</strong> {{ object.fan_speed }} RPM</li>{% endif %}
-    {% if object.fan_airflow %}<li><strong>Fan Airflow:</strong> {{ object.fan_airflow }} CFM</li>{% endif %}
-    {% if object.noise_level %}<li><strong>Noise Level:</strong> {{ object.noise_level }} dB</li>{% endif %}
-    {% if object.dimension %}<li><strong>Dimension:</strong> {{ object.dimension }}</li>{% endif %}
-
-    {% if object.storage_type %}<li><strong>Storage Type:</strong> {{ object.storage_type }}</li>{% endif %}
-    {% if object.storage_capacity %}<li><strong>Storage Capacity:</strong> {{ object.storage_capacity }} GB</li>{% endif %}
-    {% if object.form_factor %}<li><strong>Form Factor:</strong> {{ object.form_factor }}</li>{% endif %}
-    {% if object.speed %}<li><strong>Speed:</strong> {{ object.speed }}</li>{% endif %}
-    {% if object.interface %}<li><strong>Interface:</strong> {{ object.interface }}</li>{% endif %}
-
-    {% if object.chip_maker %}<li><strong>Chip Maker:</strong> {{ object.chip_maker }}</li>{% endif %}
-    {% if object.memory_clock %}<li><strong>Memory Clock:</strong> {{ object.memory_clock }}</li>{% endif %}
-    {% if object.cuda_core_or_stream_processor %}<li><strong>CUDA Core/Stream Processor:</strong> {{ object.cuda_core_or_stream_processor }}</li>{% endif %}
-    {% if object.dimension_weight %}<li><strong>Dimensions and Weight:</strong> {{ object.dimension_weight }}</li>{% endif %}
-    {% if object.other_features %}<li><strong>Other Features:</strong> {{ object.other_features }}</li>{% endif %}
-
-    {% if object.capacity %}<li><strong>Capacity:</strong> {{ object.capacity }} W</li>{% endif %}
-    {% if object.certification %}<li><strong>Certification:</strong> {{ object.certification }}</li>{% endif %}
-    {% if object.modular_type %}<li><strong>Modular Type:</strong> {{ object.modular_type }}</li>{% endif %}
-    {% if object.connector_types %}<li><strong>Connector Types:</strong> {{ object.connector_types }}</li>{% endif %}
-</ul>
-
-<a href="{% url 'builder' %}" class="btn btn-primary">Back to Products</a>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{% url 'cpu' %}" class="btn btn-primary" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; text-decoration: none;">Back to Products</a>
+</div>
 {% endblock %}

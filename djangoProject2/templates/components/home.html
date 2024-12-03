@@ -13,44 +13,47 @@
         </div>
     </section>
       <!--build part end here-->
-
-
-
-
-      <!--guides part start here-->
+    
+      <!--guides part start here--> 
 <section>
     <div class="guid">
         <div class="container">
-            <h1 class="text-center mb-4">Build Guides</h1>
-            <div class="d-flex justify-content-center mb-4">
-                <a href="{% url 'guide_list' %}" class="btn btn-primary">View Guide</a>
-            </div> 
-            <p class="text-center mb-4">
-                Building your own PC and need ideas on where to get started? Explore our build guides
-                which cover systems for a variety of use-cases and budgets.
-            </p>
             <div class="row">
-                {% for guide in guides %}
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        {% if guide.image %}
-                        <img src="{{ guide.image.url }}" class="card-img-top" alt="{{ guide.title }}" style="max-height: 200px; object-fit: cover;">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ guide.title }}</h5>
-                            <p class="card-text"><strong></strong> {{ guide.cpu }}</p>
-                            <p class="card-text"><strong></strong> {{ guide.gpu }}</p>
+                <!-- Left Text Section -->
+                <div class="col-md-3">
+                    <h1 style="color: #fff;">Build Guides</h1>
+                    <p style="color: #fff;">
+                        Building your own PC and need ideas on where to get started? Explore our build guides
+                        which cover systems for a variety of use-cases and budgets.
+                    </p>
+                    <a href="{% url 'guide_list' %}" class="btn btn-primary">View Guide</a>
+                </div>
+
+                <!-- Right Cards Section -->
+                <div class="col-md-9">
+                    <div class="row">
+                        {% for guide in guides %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                {% if guide.image %}
+                                <img src="{{ guide.image.url }}" class="card-img-top" alt="{{ guide.title }}" style="max-height: 200px; object-fit: cover;">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ guide.title }}</h5>
+                                    <p class="card-text"><strong></strong> {{ guide.cpu }}</p>
+                                    <p class="card-text"><strong></strong> {{ guide.gpu }}</p>
+                                </div>
+                            </div>
                         </div>
-                        
+                        {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
 </section>
+<!--guides part end here-->
 
-      <!--guides part start here-->
 
       <!--completed part start here-->
       <section>
