@@ -173,8 +173,6 @@ class CASE(models.Model):
         return f"{self.name} (Shop: {self.shop})"
 
 
-
-
 class CartItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cart")
     product_type = models.CharField(max_length=50)  # e.g., 'CPU', 'GPU', etc.

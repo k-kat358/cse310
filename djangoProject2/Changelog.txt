@@ -17,3 +17,6 @@ Changelog 3 : Samir (3/12/24)
 Changelog 4 : Samir (3/12/24)
 1. cleaned up the directory a bit
 
+Changelog 5 : Samir (3/12/24)
+1. Updated homepage
+
